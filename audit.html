@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    select, input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px; font-size: 16px; cursor: pointer; }
+    .camera-icon { cursor: pointer; margin-left: 5px; }
+    #suggestions { border: 1px solid #ccc; max-height: 150px; overflow-y: auto; position: absolute; background: #fff; z-index: 10; width: 95%; }
+    #suggestions div { padding: 8px; cursor: pointer; }
+    #suggestions div:hover { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+
+  <h2>Audit Form</h2>
+  <form id="auditForm">
+    <!-- DH Name -->
+    <label for="dhName">DH Name *</label>
+    <input type="text" id="dhName" name="dhName" placeholder="Search DH Name" required autocomplete="off">
+    <div id="suggestions"></div>
+
+    <!-- LPN Number -->
+    <label for="lpnNumber">LPN Number *</label>
+    <div style="display:flex;align-items:center;">
+      <input type="text" id="lpnNumber" name="lpnNumber" required>
+      <span class="camera-icon" onclick="openCamera()">📷</span>
+    </div>
+
+    <!-- LPN Qty -->
+    <label for="lpnQty">LPN Qty *</label>
+    <input type="number" id="lpnQty" name="lpnQty" required>
+
+    <!-- Physical Qty -->
+    <label for="physicalQty">Physical Qty *</label>
+    <input type="number" id="physicalQty" name="physicalQty" required>
+
+    <!-- Type -->
+    <label for="type">Type *</label>
+    <select id="type" name="type" required>
+      <option value="">Select</option>
+      <option value="QC">QC</option>
+      <option value="Non QC">Non QC</option>
+    </select>
+
+    <!-- Auditor Name -->
+    <label for="auditorName">Auditor Name *</label>
+    <select id="auditorName" name="auditorName" required>
+      <option value="">Select</option>
+      <option value="Arjun MY">Arjun MY</option>
+      <option value="Kishor Pandit">Kishor Pandit</option>
+      <option value="Jeet Kumar">Jeet Kumar</option>
+      <option value="Sagar Pandit">Sagar Pandit</option>
+    </select>
+
+    <!-- Remarks -->
+    <label for="remarks">Remarks *</label>
+    <select id="remarks" name="remarks" required>
+      <option value="">Select</option>
+      <option value="Short">Short</option>
+      <option value="Damage">Damage</option>
+      <option value="Excess">Excess</option>
+      <option value="Miss match">Miss match</option>
+      <option value="No issue">No issue</option>
+    </select>
+
+    <!-- Different Qty -->
+    <label for="differentQty">Different Qty *</label>
+    <input type="number" id="differentQty" name="differentQty" required>
+
+    <!-- Different Value -->
+    <label for="differentValue">Different Value *</label>
+    <input type="number" id="differentValue" name="differentValue" required>
+
+    <!-- Employee Name -->
+    <label for="employeeName">Employee Name</label>
+    <input type="text" id="employeeName" name="employeeName">
+
+    <button type="submit">Submit</button>
+    <button type="button" onclick="document.getElementById('auditForm').reset()">Clear Form</button>
+  </form>
+
+  <script>
+    // 🟢 Replace with your Apps Script Web App URL
+    const SCRIPT_URL = "YOUR_WEB_APP_URL";
+
+    // DH Name list
+    const dhNames = [
+      "BLR-BTM-2","BLR-BTM LAYOUT NEW","BLR-RICHMOND TOWN","BLR-JP Nagar","BLR-BANASHANKARI",
+      "BLR-Mathikere","BLR-Kalyan Nagar Network","BLR-Chickpet New","BLR-SHIVAJI NAGAR","BLR-Cholayakanakalli",
+      "BLR-Jakkur New","BLR-Jakkur Network","BLR-HEBBAL NEW","BLR-Nikoo Home New","BLR-TC Palaya",
+      "BLR-Devanahalli","BLR-Yelahanka Network","BLR-Nehru Nagar","BLR-GUNJUR","BLR-HSR-3",
+      "BLR-Narayana reddy Layout","BLR-Kannika Nagar","BLR-GUNJUR Network","BLR-Mico layout network-2",
+      "BLR-Bannerghatta Network 2","BLR-BANNERGHATTA","BLR-Kambhipura","BLR-JP NAGAR New","BLR-KALYAN NAGAR NEW",
+      "BLR-Challakere","BLR-Koramangala Network","BLR-Hennur New","BLR-Dasarahalli","BLR-SHIVAJI NAGAR Network",
+      "BLR-Margosa road","BLR-Banjara Layout","BLR-Ramamurthy Nagar Network","BLR-BASAVANAPURA NETWORK 2",
+      "BLR-Bagalur","BLR-RWF Yelahanka","Sanjaynagar","BLR-BHADRAPPA LAYOUT NETWORK","BLR-Bhadrapppa Layout",
+      "BLR-HBR Layout","BLR-Dooravani Nagar","BLR-Nagavara","BLR-Narayanapura","BLR-YELAHANKA",
+      "BLR-Kasturinagar","BLR-Vidyaranyapura","BLR-Kogilu Road","BLR-Narayanapura Network","BLR-INDIRANAGAR NEW",
+      "BLR-Malleshwaram new","BLR-RAMAMURTHY NAGAR NEW"
+    ];
+
+    const input = document.getElementById("dhName");
+    const suggestions = document.getElementById("suggestions");
+
+    input.addEventListener("input", () => {
+      const value = input.value.toLowerCase();
+      suggestions.innerHTML = "";
+      if (value) {
+        dhNames.filter(name => name.toLowerCase().includes(value)).forEach(name => {
+          const div = document.createElement("div");
+          div.textContent = name;
+          div.onclick = () => {
+            input.value = name;
+            suggestions.innerHTML = "";
+          };
+          suggestions.appendChild(div);
+        });
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (e.target !== input) {
+        suggestions.innerHTML = "";
+      }
+    });
+
+    // Submit to Google Sheet
+    document.getElementById("auditForm").addEventListener("submit", e => {
+      e.preventDefault();
+
+      const formData = {
+        dhName: document.getElementById("dhName").value,
+        lpnNumber: document.getElementById("lpnNumber").value,
+        lpnQty: document.getElementById("lpnQty").value,
+        physicalQty: document.getElementById("physicalQty").value,
+        type: document.getElementById("type").value,
+        auditorName: document.getElementById("auditorName").value,
+        remarks: document.getElementById("remarks").value,
+        differentQty: document.getElementById("differentQty").value,
+        differentValue: document.getElementById("differentValue").value,
+        employeeName: document.getElementById("employeeName").value
+      };
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(formData)
+      })
+      .then(res => res.json())
+      .then(() => {
+        alert("Form submitted successfully!");
+        document.getElementById("auditForm").reset();
+      })
+      .catch(err => alert("Error: " + err.message));
+    });
+
+    // Camera open function
+    function openCamera() {
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "image/*";
+      input.capture = "environment";
+      input.click();
+    }
+  </script>
+</body>
+</html>
