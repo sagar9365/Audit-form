@@ -97,7 +97,7 @@
 
 // ======== CONFIG ========
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzPBhIcm1RdSqXhftWboaKTROUxKnV3nrYo32XTiUVT4xSsHbCv80QdpR9EuB7ytCE/exec"; // Replace with your Apps Script Web App URL
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx3Us8mxh4o_U3pVtkd3LLZylRvttHhg82dax8N0liICmpnqewDoap-o1dpffH_wO0/exec"; // Replace with your Apps Script Web App URL
 
 // ======== DH Names ========
 
