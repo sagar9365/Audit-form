@@ -18,9 +18,11 @@
 <div id="suggestions"></div>
 
 <label for="lpnNumber">LPN Number</label>
-<div class="scan-container">
+<div class="lpn-input-wrapper">
   <input type="text" id="lpnNumber" required>
-  <button type="button" onclick="startScanner()">Scan</button>
+  <button type="button" onclick="startScanner()" class="scan-btn">
+    &#128247; <!-- Camera icon, aap font-awesome icon bhi use kar sakte ho -->
+  </button>
 </div>
 <div id="qr-reader"></div>
 
