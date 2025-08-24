@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f0f4f8;
   margin: 0; padding: 0;
@@ -75,4 +75,144 @@ button[type="button"]:hover { background:#7f8c8d; transform:translateY(-1px); }
   .form-container { padding:35px 40px; }
   input, select { font-size:18px; padding:12px 14px; }
   button { font-size:18px; padding:14px 20px; }
+}
+*/
+
+
+
+/* ====== General ====== */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* ====== Form Container ====== */
+.form-container {
+  background: #fff;
+  margin: 30px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* ====== Labels & Inputs ====== */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #444;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0,123,255,0.4);
+}
+
+/* ====== Suggestions ====== */
+#suggestions {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  position: absolute;
+  max-height: 150px;
+  overflow-y: auto;
+  width: calc(100% - 50px);
+  z-index: 1000;
+}
+
+#suggestions div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions div:hover {
+  background: #f0f0f0;
+}
+
+/* ====== Scan Container ====== */
+.scan-container {
+  display: flex;
+  gap: 10px;
+}
+
+.scan-container input {
+  flex: 1;
+}
+
+.scan-container button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.scan-container button:hover {
+  background: #0056b3;
+}
+
+/* ====== QR Reader ====== */
+#qr-reader {
+  width: 100%;
+  margin: 15px 0;
+  display: none;
+}
+
+/* ====== Buttons ====== */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-group button[type="submit"] {
+  background: #28a745;
+  color: #fff;
+}
+
+.button-group button[type="submit"]:hover {
+  background: #218838;
+}
+
+.button-group button[type="button"] {
+  background: #dc3545;
+  color: #fff;
+}
+
+.button-group button[type="button"]:hover {
+  background: #b02a37;
 }
