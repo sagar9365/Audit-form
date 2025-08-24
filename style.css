@@ -93,7 +93,7 @@ input:focus, select:focus {
 .lpn-input-wrapper .scan-btn {
   position: absolute;
   right: 5px;
-  top: 50%;
+  top: 5%;
   transform: translateY(-50%);
   height: 34px;
   width: 36px;
