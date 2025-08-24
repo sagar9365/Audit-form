@@ -8,7 +8,7 @@
 /* ====== Body ====== */
 body {
   font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -98,7 +98,7 @@ input:focus, select:focus {
   width: 40px;
   height: 100%;
   border: none;
-  background: #fff;
+  background: transparent;
   font-size: 24px;
   cursor: pointer;
   display: flex;
