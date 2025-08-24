@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #eef2f7;
+  background: linear-gradient(135deg, #eef2f7, #d9e2ec);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -18,8 +18,8 @@ body {
 /* ====== Form Container ====== */
 .form-container {
   background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 500px;
   padding: 35px 30px;
@@ -28,8 +28,8 @@ body {
 }
 
 .form-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.18);
 }
 
 .form-container h2 {
@@ -68,6 +68,52 @@ input:focus, select:focus {
   background: #fff;
 }
 
+/* ====== LPN Input + Scan Button ====== */
+.lpn-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.lpn-input-wrapper input {
+  width: 100%;
+  padding-right: 45px; /* space for scan button */
+  padding-left: 15px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #fafafa;
+}
+
+.lpn-input-wrapper input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74,144,226,0.3);
+}
+
+.lpn-input-wrapper .scan-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 34px;
+  width: 36px;
+  border: none;
+  background: #4a90e2;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.lpn-input-wrapper .scan-btn:hover {
+  background: #357ab7;
+  transform: translateY(-50%) scale(1.05);
+}
+
 /* ====== Suggestions Dropdown ====== */
 #suggestions {
   border: 1px solid #ccc;
@@ -92,7 +138,7 @@ input:focus, select:focus {
   background: #f0f4f8;
 }
 
-/* ====== Scan Container ====== */
+/* ====== Scan Container (for other scan fields if any) ====== */
 .scan-container {
   display: flex;
   gap: 10px;
@@ -110,11 +156,12 @@ input:focus, select:focus {
   color: #fff;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .scan-container button:hover {
   background: #357ab7;
+  transform: translateY(-2px);
 }
 
 /* ====== QR Reader ====== */
@@ -141,7 +188,7 @@ input:focus, select:focus {
   font-weight: 700;
   cursor: pointer;
   font-size: 15px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.2s ease;
 }
 
 .button-group button[type="submit"] {
@@ -151,6 +198,7 @@ input:focus, select:focus {
 
 .button-group button[type="submit"]:hover {
   background: #218838;
+  transform: translateY(-2px);
 }
 
 .button-group button[type="button"] {
@@ -160,20 +208,25 @@ input:focus, select:focus {
 
 .button-group button[type="button"]:hover {
   background: #b02a37;
+  transform: translateY(-2px);
 }
 
 /* ====== Divider / Line under Form ====== */
 .form-divider {
-  height: 2px;
+  height: 3px;
   background: linear-gradient(to right, #4a90e2, #50e3c2);
-  border-radius: 1px;
-  margin-top: 30px;
+  border-radius: 2px;
+  margin-top: 35px;
 }
 
 /* ====== Responsive ====== */
 @media (max-width: 480px) {
   .form-container {
     padding: 25px 20px;
+  }
+
+  .lpn-input-wrapper input {
+    padding-right: 40px;
   }
 
   .scan-container {
