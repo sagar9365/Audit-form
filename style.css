@@ -13,7 +13,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding: 20px 10px;
+  padding: 75px 50px;
 }
 
 /* ====== Form Container ====== */
@@ -21,7 +21,7 @@ body {
   background: #fff;
   width: 100%;
   max-width: 450px;
-  padding: 50px 20px;
+  padding: 50px 40px;
   border-radius: 100px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
