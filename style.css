@@ -1,41 +1,96 @@
-/* Wrapper for input + icon + suggestions */
-.lpn-input-wrapper {
-  position: relative;  /* required for suggestions dropdown */
-  width: 100%;
+/* ====== General Reset & Body ====== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* LPN input */
-.lpn-input-wrapper input {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #eef2f7, #d9e2ec);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 10px;
+}
+
+/* ====== Form Container ====== */
+.form-container {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   width: 100%;
-  padding-right: 45px; /* space for scan button */
-  padding-left: 15px;
-  height: 42px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  outline: none;
-  background: #fafafa;
+  max-width: 500px;
+  padding: 35px 30px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0.5px;
+}
+
+/* ====== Labels & Inputs ====== */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
   font-size: 14px;
 }
 
-.lpn-input-wrapper input:focus {
+input, select {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
   border-color: #4a90e2;
   box-shadow: 0 0 8px rgba(74,144,226,0.3);
   background: #fff;
 }
 
-/* Scan button inside input */
+/* ====== LPN Input + Scan Icon + Suggestions ====== */
+.lpn-input-wrapper {
+  position: relative; /* for suggestions dropdown */
+  width: 100%;
+}
+
+.lpn-input-wrapper input {
+  padding-right: 45px; /* space for scan button */
+  padding-left: 15px;
+}
+
 .lpn-input-wrapper .scan-btn {
   position: absolute;
-  right: 0;
   top: 0;
   bottom: 0;
-  width: 40px; /* clickable width */
+  right: 0;
+  width: 40px; /* touch/click width */
   border: none;
-  background: transparent; /* remove background */
-  color: #4a90e2; /* icon color */
+  background: transparent;
+  color: #4a90e2;
   cursor: pointer;
   display: flex;
-  align-items: center;  /* vertical center */
+  align-items: center; /* vertical center */
   justify-content: center;
   font-size: 18px;
   padding: 0;
@@ -50,7 +105,7 @@
 /* Suggestions dropdown */
 #suggestions {
   position: absolute;
-  top: 100%; /* just below input */
+  top: 100%; /* below input */
   left: 0;
   width: 100%;
   max-height: 160px;
@@ -71,3 +126,104 @@
 #suggestions div:hover {
   background: #f0f4f8;
 }
+
+/* ====== Other Scan Containers (if any) ====== */
+.scan-container {
+  display: flex;
+  gap: 10px;
+}
+
+.scan-container input {
+  flex: 1;
+}
+
+.scan-container button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #4a90e2;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.scan-container button:hover {
+  background: #357ab7;
+  transform: translateY(-2px);
+}
+
+/* ====== QR Reader ====== */
+#qr-reader {
+  width: 100%;
+  margin: 15px 0;
+  display: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ====== Buttons ====== */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.button-group button[type="submit"] {
+  background: #28a745;
+  color: #fff;
+}
+
+.button-group button[type="submit"]:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.button-group button[type="button"] {
+  background: #dc3545;
+  color: #fff;
+}
+
+.button-group button[type="button"]:hover {
+  background: #b02a37;
+  transform: translateY(-2px);
+}
+
+/* ====== Divider / Line under Form ====== */
+.form-divider {
+  height: 3px;
+  background: linear-gradient(to right, #4a90e2, #50e3c2);
+  border-radius: 2px;
+  margin-top: 35px;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 25px 20px;
+  }
+
+  .lpn-input-wrapper input {
+    padding-right: 40px;
+  }
+
+  .scan-container {
+    flex-direction: column;
+  }
+
+  .scan-container button {
+    width: 100%;
+  }
+}
+
