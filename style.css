@@ -1,4 +1,3 @@
-/* ====== General Reset & Body ====== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,20 +13,14 @@ body {
   padding: 40px 10px;
 }
 
-/* ====== Form Container ====== */
+/* Form Container */
 .form-container {
-  background: #ffffff;
+  background: #fff;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 500px;
   padding: 35px 30px;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.form-container:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.18);
 }
 .form-container h2 {
   text-align: center;
@@ -35,10 +28,9 @@ body {
   font-size: 28px;
   font-weight: 700;
   color: #222;
-  letter-spacing: 0.5px;
 }
 
-/* ====== Labels & Inputs ====== */
+/* Labels & Inputs */
 label {
   display: block;
   margin-bottom: 6px;
@@ -63,7 +55,7 @@ input:focus, select:focus {
   background: #fff;
 }
 
-/* ====== DH Input + Suggestions ====== */
+/* DH Input + Suggestions */
 .dh-input-wrapper {
   position: relative;
 }
@@ -89,14 +81,12 @@ input:focus, select:focus {
   background: #f0f4f8;
 }
 
-/* ====== LPN Input + Scan Icon ====== */
+/* LPN Input + Scan */
 .lpn-input-wrapper {
   position: relative;
-  width: 100%;
 }
 .lpn-input-wrapper input {
   padding-right: 45px;
-  padding-left: 15px;
   height: 42px;
 }
 .lpn-input-wrapper .scan-btn {
@@ -109,31 +99,27 @@ input:focus, select:focus {
   background: transparent;
   color: #4a90e2;
   cursor: pointer;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  padding: 0;
-  outline: none;
   transition: transform 0.2s;
 }
 .lpn-input-wrapper .scan-btn:hover {
   transform: scale(1.1);
 }
 
-/* ====== QR Reader ====== */
+/* QR Reader */
 #qr-reader {
   width: 100%;
   margin: 15px 0;
   display: none;
   border-radius: 12px;
-  overflow: hidden;
 }
 
-/* ====== Buttons ====== */
+/* Buttons */
 .button-group {
   display: flex;
-  justify-content: space-between;
   gap: 12px;
 }
 .button-group button {
@@ -144,7 +130,7 @@ input:focus, select:focus {
   font-weight: 700;
   cursor: pointer;
   font-size: 15px;
-  transition: all 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 .button-group button[type="submit"] {
   background: #28a745;
@@ -152,7 +138,6 @@ input:focus, select:focus {
 }
 .button-group button[type="submit"]:hover {
   background: #218838;
-  transform: translateY(-2px);
 }
 .button-group button[type="button"] {
   background: #dc3545;
@@ -160,10 +145,9 @@ input:focus, select:focus {
 }
 .button-group button[type="button"]:hover {
   background: #b02a37;
-  transform: translateY(-2px);
 }
 
-/* ====== Divider / Line under Form ====== */
+/* Gradient Divider */
 .form-divider {
   height: 3px;
   background: linear-gradient(to right, #4a90e2, #50e3c2);
@@ -171,14 +155,11 @@ input:focus, select:focus {
   margin-top: 35px;
 }
 
-/* ====== Responsive ====== */
-@media (max-width: 480px) {
-  .form-container {
-    padding: 25px 20px;
-  }
-  .lpn-input-wrapper input {
-    padding-right: 40px;
-  }
+/* Responsive */
+@media (max-width: 480px){
+  .form-container { padding: 25px 20px; }
+  .lpn-input-wrapper input { padding-right: 40px; }
 }
+
 
 
